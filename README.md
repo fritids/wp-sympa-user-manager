@@ -1,4 +1,4 @@
 wp-sympa-user-manager
 =====================
 
-A wordpress plugin to manage sympa ENS users
+A wordpress plugin to synchronise a wp-users with a SYMPA mailing list at a remote host.
