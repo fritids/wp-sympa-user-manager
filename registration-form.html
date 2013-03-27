@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Formulaire d'inscription</title>
+
+<link href="inscription.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body>
+
+<hgroup>
+<h1>Formulaire d'inscription</h1>
+</hgroup>
+
+<form action="ajouter_membre.php" method="post" enctype="multipart/form-data">
+
+<fieldset>
+<legend>Veuillez remplir les champs suivants</legend><br />
+
+<label>Nom <input name="nom" required autofocus/></label><br/>
+
+<label>Prénom<input name="prenom"  required/></label><br/>
+
+<label>Pseudo<input name="pseudo" required/><br/>
+
+<label>Mot de passe <input name="mot_de_passe" type="password" placeholder="entrez un mot de passe d'au moins 8 caractères" required><br/>
+
+<label>Photo de profil<input name="photo" type="file"/></label>
+<input type="submit" value="Envoyer ma photo"/><br/>
+
+<label>E-mail<input name="mail" type="email" required/></label><br/>
+
+<label>Confirmez l'adresse e-mail<input type="email" name="email_addr_repeat" oninput="check(this)"></label><br/>
+
+<label>Téléphone<input name="telephone" type="tel" pattern="0[6-7] [0-9][0-9] [0-9][0-9] [0-9][0-9] [0-9][0-9]"  placeholder="00 00 00 00 00" /></label><br/>
+
+<label>Statut <input name="statut_ENS" type="text" placeholder="normalien, auditeur, extérieur" required/></label><br/>
+
+<label>Inscrit(e) au BDE<input name="BDE" type="radio" value="oui"/>Oui<input name="BDE" type="radio" value="non"/>Non</label><br/>
+
+<label>Inscription à la liste de diffusion ?<input name="list_diff" type="radio" value="oui"/>Oui<input name="list_diff" type="radio" value="non"/>Non</label><br/>
+</fieldset>
+
+<fieldset>
+<legend>Choix des cours de danse</legend><br/>
+
+<label>Rock<input name="rock" type="checkbox"/>
+<label>Niveau :</label>
+<select name="niveau">
+	<option name="null"> </option>
+	<option name="débutant">Débutant</option>
+	<option name="intermediaire">Intermédiaire</option>
+	<option name="avance">Avancé</option>
+</select>
+</label><br/>
+
+<label>Salsa<input name="salsa" type="checkbox"/>
+<label>Niveau :</label>
+<select name="niveau">
+	<option name="null"> </option>
+	<option name="débutant">Débutant</option>
+	<option name="intermediaire">Intermédiaire</option>
+	<option name="avance">Avancé</option>
+</select>
+</label><br/>
+
+<label>West Coast<input name="west_coast" type="checkbox" />
+<label>Niveau :</label>
+<select name="niveau">
+	<option name="null"> </option>
+	<option name="débutant">Débutant</option>
+	<option name="intermediaire">Intermédiaire</option>
+	<option name="avance">Avancé</option>
+</select>
+</label><br/>
+
+<label>Danse de Salon<input name="danse_de_salon" type="checkbox"/>
+<label>Niveau :</label>
+<select name="niveau">
+	<option name="null"> </option>
+	<option name="débutant">Débutant</option>
+	<option name="intermediaire">Intermédiaire</option>
+	<option name="avance">Avancé</option>
+</select>
+</label><br/>
+</fieldset>
+
+
+<script>
+function check(input) {
+  if (input.value != document.getElementById('email_addr').value) {
+    input.setCustomValidity('Les deux adresses e-mail doivent correspondre');
+  } else {
+    // input is valid -- reset the error message
+    input.setCustomValidity('');
+  }
+}
+</script>
+
+
+<input type="submit" value="Créer mon profil" name="validation" />
+
+</form>
+
+</body>
+</html>
