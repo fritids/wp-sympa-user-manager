@@ -1,0 +1,29 @@
+---------------------------------------
+Database modelisation for a club member
+---------------------------------------
+
+wp_users
+--------
+  user_email : string
+  display_name : string
+
+wp_usermeta
+key : value
+-----------
+  first_name : string
+  last_name : string
+  nickname : string
+  newsletter : 0 | 1
+  member_type : "exterieur" | "ens"
+  member_contrib : 0 | 1
+  sync : 0 | 1
+  valid_email : 0 | 1
+
+
+// Comments
+
+member_type : wether the member student at the ENS or not.
+member_contrib : 1 if the member has paid his annual contribution, 0 otherwise.
+newsletter : 1 if the member wishes to recieve the newsletter, 0 otherwise.
+sync : 1 if the member's email address is synced with the SYMPA mailing lis server.
+valid_email : 1 if the member has confirmed his email address, 0 otherwise 
