@@ -1,109 +1,117 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<head>
-<meta charset="utf-8">
-<title>Formulaire d'inscription</title>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Formulaire d'inscription</title>
+    <link href="inscription.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
 
-<link href="inscription.css" rel="stylesheet" type="text/css">
-<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-</head>
+  <body>
 
-<body>
+    <hgroup>
+      <h1>S'inscrire au Club Rock</h1>
+    </hgroup>
 
-<hgroup>
-<h1>Formulaire d'inscription</h1>
-</hgroup>
+    <form action="add_member.php" method="post">
 
-<form action="ajouter_membre.php" method="post" enctype="multipart/form-data">
+      <fieldset>
+	<legend>Veuillez remplir les champs suivants</legend><br/>
+	<label>Nom 
+	<input name="last_name" required autofocus/>
+	</label><br/>
 
-<fieldset>
-<legend>Veuillez remplir les champs suivants</legend><br />
+	<label>Prénom
+	<input name="first_name"  required/>
+	</label><br/>
 
-<label>Nom <input name="nom" required autofocus/></label><br/>
+	<label>Pseudo
+	<input name="nickname" required/>
+	</label><br/>
 
-<label>Prénom<input name="prenom"  required/></label><br/>
+	<label>Mot de passe <input name="user_pass" type="password" required/><br/></label>
 
-<label>Pseudo<input name="pseudo" required/><br/>
+	<label>E-mail
+	<input name="user_mail" type="email" required/>
+	</label><br/>
 
-<label>Mot de passe <input name="mot_de_passe" type="password" placeholder="entrez un mot de passe d'au moins 8 caractères" required><br/>
+	<label>Confirmez l'adresse e-mail
+	<input type="email" name="user_email_repeat" oninput="check(this)"/>
+	</label><br/>
 
-<label>Photo de profil<input name="photo" type="file"/></label>
-<input type="submit" value="Envoyer ma photo"/><br/>
+	<label>Etudiant à l'ENS ? 
+	<input type="radio" name="member_type" value="ens"/> Oui 
+	<input type="radio" name="member_type" value="exterieur"/> Non 
+	</label><br/>
 
-<label>E-mail<input name="mail" type="email" required/></label><br/>
+	<label>Abonnement à la newsletter? 
+	<input name="list_diff" type="radio" value="oui"/>Oui
+	<input name="list_diff" type="radio" value="non"/>Non
+	</label>
 
-<label>Confirmez l'adresse e-mail<input type="email" name="email_addr_repeat" oninput="check(this)"></label><br/>
+      </fieldset>
 
-<label>Téléphone<input name="telephone" type="tel" pattern="0[6-7] [0-9][0-9] [0-9][0-9] [0-9][0-9] [0-9][0-9]"  placeholder="00 00 00 00 00" /></label><br/>
+      <fieldset>
+	<legend>Choix des cours de danse</legend><br/>
 
-<label>Statut <input name="statut_ENS" type="text" placeholder="normalien, auditeur, extérieur" required/></label><br/>
+	<label>Rock<input name="rock" type="checkbox"/>
+	<label>Niveau :</label>
+	<select name="niveau">
+	  <option name="null"> </option>
+	  <option name="débutant">Débutant</option>
+	  <option name="intermediaire">Intermédiaire</option>
+	  <option name="avance">Avancé</option>
+	</select>
+	</label><br/>
 
-<label>Inscrit(e) au BDE<input name="BDE" type="radio" value="oui"/>Oui<input name="BDE" type="radio" value="non"/>Non</label><br/>
+	<label>Salsa<input name="salsa" type="checkbox"/>
+	<label>Niveau :</label>
+	<select name="niveau">
+	  <option name="null"> </option>
+	  <option name="débutant">Débutant</option>
+	  <option name="intermediaire">Intermédiaire</option>
+	  <option name="avance">Avancé</option>
+	</select>
+	</label><br/>
 
-<label>Inscription à la liste de diffusion ?<input name="list_diff" type="radio" value="oui"/>Oui<input name="list_diff" type="radio" value="non"/>Non</label><br/>
-</fieldset>
+	<label>West Coast<input name="west_coast" type="checkbox" />
+	<label>Niveau :</label>
+	<select name="niveau">
+	  <option name="null"> </option>
+	  <option name="débutant">Débutant</option>
+	  <option name="intermediaire">Intermédiaire</option>
+	  <option name="avance">Avancé</option>
+	</select>
+	</label><br/>
 
-<fieldset>
-<legend>Choix des cours de danse</legend><br/>
-
-<label>Rock<input name="rock" type="checkbox"/>
-<label>Niveau :</label>
-<select name="niveau">
-	<option name="null"> </option>
-	<option name="débutant">Débutant</option>
-	<option name="intermediaire">Intermédiaire</option>
-	<option name="avance">Avancé</option>
-</select>
-</label><br/>
-
-<label>Salsa<input name="salsa" type="checkbox"/>
-<label>Niveau :</label>
-<select name="niveau">
-	<option name="null"> </option>
-	<option name="débutant">Débutant</option>
-	<option name="intermediaire">Intermédiaire</option>
-	<option name="avance">Avancé</option>
-</select>
-</label><br/>
-
-<label>West Coast<input name="west_coast" type="checkbox" />
-<label>Niveau :</label>
-<select name="niveau">
-	<option name="null"> </option>
-	<option name="débutant">Débutant</option>
-	<option name="intermediaire">Intermédiaire</option>
-	<option name="avance">Avancé</option>
-</select>
-</label><br/>
-
-<label>Danse de Salon<input name="danse_de_salon" type="checkbox"/>
-<label>Niveau :</label>
-<select name="niveau">
-	<option name="null"> </option>
-	<option name="débutant">Débutant</option>
-	<option name="intermediaire">Intermédiaire</option>
-	<option name="avance">Avancé</option>
-</select>
-</label><br/>
-</fieldset>
-
-
-<script>
-function check(input) {
-  if (input.value != document.getElementById('email_addr').value) {
-    input.setCustomValidity('Les deux adresses e-mail doivent correspondre');
-  } else {
-    // input is valid -- reset the error message
-    input.setCustomValidity('');
-  }
-}
-</script>
+	<label>Danse de Salon<input name="danse_de_salon" type="checkbox"/>
+	<label>Niveau :</label>
+	<select name="niveau">
+	  <option name="null"> </option>
+	  <option name="débutant">Débutant</option>
+	  <option name="intermediaire">Intermédiaire</option>
+	  <option name="avance">Avancé</option>
+	</select>
+	</label><br/>
+      </fieldset>
 
 
-<input type="submit" value="Créer mon profil" name="validation" />
+      <script>
+	function check(input) {
+	if (input.value != document.getElementById('email_addr').value) {
+	input.setCustomValidity('Les deux adresses e-mail doivent correspondre');
+	} else {
+	// input is valid -- reset the error message
+	input.setCustomValidity('');
+	}
+	}
+      </script>
 
-</form>
 
-</body>
+      <input type="submit" value="Créer mon profil" name="validation" />
+
+    </form>
+
+  </body>
 </html>
