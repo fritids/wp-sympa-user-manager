@@ -1,0 +1,1 @@
+<? echo "Un mail vous a été envoyé" ?>

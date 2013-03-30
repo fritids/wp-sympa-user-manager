@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8"/>
     <title>Formulaire d'inscription</title>
-    <link href="inscription.css" rel="stylesheet" type="text/css"/>
+    <link href="registration-form.css" rel="stylesheet" type="text/css"/>
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   </head>
 
@@ -14,7 +14,7 @@
       <h1>S'inscrire au Club Rock</h1>
     </hgroup>
 
-    <form action="add_member.php" method="post">
+    <form action="sympa-add-member.php" method="post">
 
       <fieldset>
 	<legend>Veuillez remplir les champs suivants</legend><br/>
@@ -26,8 +26,8 @@
 	<input name="first_name"  required/>
 	</label><br/>
 
-	<label>Pseudo
-	<input name="nickname" required/>
+	<label>Login
+	<input name="user_name" required/>
 	</label><br/>
 
 	<label>Mot de passe <input name="user_pass" type="password" required/><br/></label>
@@ -52,50 +52,6 @@
 
       </fieldset>
 
-      <fieldset>
-	<legend>Choix des cours de danse</legend><br/>
-
-	<label>Rock<input name="rock" type="checkbox"/>
-	<label>Niveau :</label>
-	<select name="niveau">
-	  <option name="null"> </option>
-	  <option name="débutant">Débutant</option>
-	  <option name="intermediaire">Intermédiaire</option>
-	  <option name="avance">Avancé</option>
-	</select>
-	</label><br/>
-
-	<label>Salsa<input name="salsa" type="checkbox"/>
-	<label>Niveau :</label>
-	<select name="niveau">
-	  <option name="null"> </option>
-	  <option name="débutant">Débutant</option>
-	  <option name="intermediaire">Intermédiaire</option>
-	  <option name="avance">Avancé</option>
-	</select>
-	</label><br/>
-
-	<label>West Coast<input name="west_coast" type="checkbox" />
-	<label>Niveau :</label>
-	<select name="niveau">
-	  <option name="null"> </option>
-	  <option name="débutant">Débutant</option>
-	  <option name="intermediaire">Intermédiaire</option>
-	  <option name="avance">Avancé</option>
-	</select>
-	</label><br/>
-
-	<label>Danse de Salon<input name="danse_de_salon" type="checkbox"/>
-	<label>Niveau :</label>
-	<select name="niveau">
-	  <option name="null"> </option>
-	  <option name="débutant">Débutant</option>
-	  <option name="intermediaire">Intermédiaire</option>
-	  <option name="avance">Avancé</option>
-	</select>
-	</label><br/>
-      </fieldset>
-
 
       <script>
 	function check(input) {
@@ -109,7 +65,7 @@
       </script>
 
 
-      <input type="submit" value="Créer mon profil" name="validation" />
+      <input type="submit" value="Inscription" name="validation" />
 
     </form>
 
