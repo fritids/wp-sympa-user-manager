@@ -16,6 +16,7 @@
 
     <form action="sympa-add-member.php" method="post">
 
+<!-- Infos personnelles -->
       <fieldset>
 	<legend>Veuillez remplir les champs suivants</legend><br/>
 	<label>Nom 
@@ -40,6 +41,7 @@
 	<input type="email" name="user_email_repeat" oninput="check(this)"/>
 	</label><br/>
 
+<!-- Infos statutaires -->
 	<label>Etudiant à l'ENS ? 
 	<input type="radio" name="member_type" value="ens"/> Oui 
 	<input type="radio" name="member_type" value="exterieur"/> Non 
@@ -52,7 +54,7 @@
 
       </fieldset>
 
-
+<!-- Vérification de l'E-mail -->
       <script>
 	function check(input) {
 	if (input.value != document.getElementById('email_addr').value) {
