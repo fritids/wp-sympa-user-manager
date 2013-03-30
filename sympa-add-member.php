@@ -1,6 +1,4 @@
 <?php
-
-
 require_once("/var/www/wordpress/wp-load.php");
 // Absolute path to current directory
 
@@ -12,7 +10,7 @@ $last_name = $_POST['last_name'];
 $first_name = $_POST['first_name'];
 $user_name = $_POST['user_name'];
 $user_pass = $_POST['user_pass'];
-$user_email = $_POST['user_email'];
+$user_email = $_POST['user_mail'];
 $member_type = $_POST['member_type'];
 $newsletter = $_POST['list_diff'];
 
@@ -41,13 +39,18 @@ if ( !$user_id and email_exists($user_email) == false )
 
     //Sending confirmation email
     //$url_prefix = plugin_dir_path(__FILE__) ;
-    $url_prefix = "http://localhost/wordpress/wp-contents/plugins/wp-sympa-user-manager/";
+    $url_prefix = "http://localhost/wordpress/wp-content/plugins/wp-sympa-user-manager/";
     $url_suffix = "sympa-confirm-email.php?hash=".$hash ;
-    $message = $first_name.", pour valider ton adresse email, suit le lien suivant : ".$url_prefix.$url_suffix ;
-    $headers[] = 'From: Club Rock <clubrock.enpiste@gmail.com>';
-
-    wp_mail($user_email, '[Club Rock] Validation', $message, $headers);
     
+    $message = $first_name.", pour valider ton adresse email, suis le lien suivant : ".$url_prefix.$url_suffix ;
+    
+    $headers[] = 'From: Club Rock <clubrock.enpiste@gmail.com>';
+    $subject="[Club Rock] Validation de l'inscription";
+    
+    wp_mail($user_email, $subject, $message, $headers);
+    //$dest = $user_email ;
+    //$res = mail($dest,$subject,$message);
+    //echo $res;
     // Showing confirmation page
     include("sympa-confirm-inscription.php");
   } 

@@ -1,8 +1,3 @@
-<?php 
-$here = plugin_dir_path(__FILE__) ;
-?>
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
