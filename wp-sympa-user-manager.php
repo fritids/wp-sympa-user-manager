@@ -11,12 +11,18 @@ function admin_panel ()
   include "admin-panel.php";
 }
 
+// Add entry into admin panel
+add_action('admin_menu', 'sympa_user_manager_admin_panel');
 function sympa_user_manager_admin_panel () 
 {
   add_users_page("Sympa users", "Sympa users", "list_users", "sympa-users", "admin_panel");
 }
 
-function sympa_user_manager_front_registration ()
+
+// Custom front registration page
+// First solution : using a wp page..
+add_shortcode('sympa-user-registration', 'sympa_front_registration');
+function sympa_front_registration ()
 {
   ob_start();
   include "registration-form.php";
@@ -25,8 +31,13 @@ function sympa_user_manager_front_registration ()
   return $ret;
 }
 
-add_action('admin_menu', 'sympa_user_manager_admin_panel');
 
-add_shortcode('sympa-user-registration', 'sympa_user_manager_front_registration');
+// Custom front registration 
+// Secon solution : using registration hooks
 
+add_action('register_form','sympa_register_form');
+function sympa_register_form (){
+  include('sympa-register-extras.php');
+    }
 ?>
+
